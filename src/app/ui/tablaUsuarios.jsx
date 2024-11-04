@@ -1,11 +1,10 @@
 import React from 'react';
 import { Usuario } from '../types';
+import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
-interface TablaUsuariosProps {
-  usuarios: Usuario[];
-}
-
-const TablaUsuarios: React.FC<TablaUsuariosProps> = ({ usuarios }) => {
+const TablaUsuarios = ({usuarios}) => {
   return (
     <div className="bg-white rounded-lg shadow p-4">
       <h2 className="text-lg font-semibold mb-4">Usuarios</h2>
@@ -15,19 +14,23 @@ const TablaUsuarios: React.FC<TablaUsuariosProps> = ({ usuarios }) => {
             <tr>
               <th className="px-4 py-2 border-b font-medium text-gray-600">Nombre</th>
               <th className="px-4 py-2 border-b font-medium text-gray-600">Correo</th>
-              <th className="px-4 py-2 border-b font-medium text-gray-600">Acciones</th>
+              <th className="px-4 py-2 border-b font-medium text-gray-600"></th>
             </tr>
           </thead>
           <tbody>
-            {usuarios.map((user) => (
-              <tr key={user.id} className="hover:bg-gray-100">
+            {usuarios.map((usuario) => (
+              <tr key={usuario.id} className="hover:bg-gray-100">
                 <td className="px-4 py-2 border-b text-gray-700">
-                  {user.nombre} {user.apellido}
+                  {usuario.nombre} {usuario.apellido}
                 </td>
-                <td className="px-4 py-2 border-b text-gray-700">{user.correo}</td>
+                <td className="px-4 py-2 border-b text-gray-700">{usuario.correo}</td>
                 <td className="px-4 py-2 border-b text-gray-700">
-                  <button className="text-blue-500 hover:text-blue-700 mr-2">✏️</button>
-                  <button className="text-red-500 hover:text-red-700">🗑️</button>
+                    <button className="text-red-400 hover:text-red-">
+                      <DeleteOutlinedIcon fontSize="medium" />
+                    </button>
+                    <button className="text-black-500 hover:text-black-200 mr-2">
+                      <EditOutlinedIcon fontSize="medium" />
+                    </button>
                 </td>
               </tr>
             ))}

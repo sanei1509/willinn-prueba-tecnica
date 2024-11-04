@@ -1,9 +1,8 @@
 'use client'
 import {
-  UserGroupIcon,
-  HomeIcon,
-  HomeModernIcon,
-} from '@heroicons/react/24/outline';
+  Group as UserGroupIcon,
+  Home as HomeIcon,
+} from '@mui/icons-material';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';

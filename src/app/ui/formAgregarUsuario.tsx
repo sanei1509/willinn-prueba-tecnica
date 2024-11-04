@@ -1,5 +1,11 @@
 'use client'
 import React, { useState } from 'react';
+import {
+  FormControlLabel,
+  Switch
+} from '@mui/material';
+import { teal } from '@mui/material/colors'
+
 
 interface FormularioAgregarUsuarioProps {}
 
@@ -81,14 +87,25 @@ const FormularioAgregarUsuario: React.FC<FormularioAgregarUsuarioProps> = () => 
           />
         </div>
         <div className="flex items-center mb-4">
-          <label className="text-gray-700 mr-2">Activar</label>
-          <input
-            type="checkbox"
-            name="activo"
-            checked={formData.activo}
-            onChange={handleChange}
-            className="form-checkbox h-5 w-5 text-green-500"
-          />
+        <FormControlLabel
+          control={
+            <Switch
+              checked={formData.activo}
+              onChange={handleChange}
+              name="activo"
+              sx={{
+                '& .MuiSwitch-switchBase.Mui-checked': {
+                  color: teal[500],
+                },
+                '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                  backgroundColor: teal[500],
+                },
+              }}
+            />
+          }
+          label="Activar"
+          className="mt-4"
+        />
         </div>
         <button
           type="submit"
