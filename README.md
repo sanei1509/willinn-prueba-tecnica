@@ -1,4 +1,4 @@
-## Prueba técnica
+# Prueba técnica
 Mi elección es llevar a adelante el desafío frontend, dominando nextJS, aplicando estilos tanto estilos con tailwind como modulos css.
 
 
