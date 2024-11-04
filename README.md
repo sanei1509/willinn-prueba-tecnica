@@ -1,33 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Prueba técnica
+Mi elección es llevar a adelante el desafío frontend, dominando nextJS, aplicando estilos tanto estilos con tailwind como modulos css.
 
-## Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Desafío Frontend
+1. Frontend Basado en Figma
+Desarrollar el frontend de la aplicación siguiendo el diseño proporcionado en Figma.
+El frontend debe incluir una pantalla de ``LOGIN`` y un ``PANEL DE ADMINISTRACIÓN`` de usuarios, conectado con el backend para la autenticación y la gestión de usuarios.
+2. Pantalla de Login
+Conectar la pantalla de login con el endpoint ``POST /users/login`` en el backend.
+Permitir que los usuarios ingresen sus credenciales y se autentiquen a través del backend.
+3. Panel de Administración de Usuarios
+``Lista de Usuarios:``
+Conectar con el endpoint ``GET /users`` para obtener y mostrar la lista de usuarios en una tabla.
+``Agregar Usuario:``
+Utilizar el endpoint ``POST /users`` para añadir un nuevo usuario, enviando los datos necesarios.
+``Editar Usuario:``
+Permitir la edición de información de un usuario accediendo al endpoint PUT /users/{id}.
+``Eliminar Usuario:``
+Implementar la funcionalidad para eliminar usuarios llamando al endpoint DELETE /users/{id}.
+4. Dockerización del Frontend
+Crear un archivo Dockerfile para el frontend desarrollado en Next.js, utilizando el template provisto.
+Asegurarse de que el frontend esté preparado para ejecutarse en un contenedor de Docker.
+5. Docker Compose
+Configurar un archivo docker-compose.yml independiente para levantar el contenedor del frontend, separado del backend y de la base de datos.
+Garantizar que los servicios puedan comunicarse entre sí según sea necesario.
 
 ## Deploy on Vercel
 
