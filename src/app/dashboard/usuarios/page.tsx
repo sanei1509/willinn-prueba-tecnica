@@ -1,7 +1,10 @@
-import TablaUsuarios from "../ui/tablaUsuarios"
-import FormularioAgregarUsuario from "../ui/formAgregarUsuario"
-import fakeUsers from "../fakeData";
-import { Usuario } from "../types";
+import TablaUsuarios from "../../ui/tablaUsuarios"
+import FormularioAgregarUsuario from "../../ui/formAgregarUsuario"
+import fakeUsers from "../../fakeData";
+import { Usuario } from "../../types";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
 
 async function loadUsers(): Promise<Usuario[]> {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -16,6 +19,16 @@ async function loadUsers(): Promise<Usuario[]> {
 }
 
 export default async function UsuariosPage() {
+	//protected page
+  // Verifica la sesión del usuario en el lado del servidor
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    // Redirige al usuario a la página de inicio de sesión si no está autenticado
+    redirect("/login");
+  }
+
+
 	const usuarios = await loadUsers();
 	// const usuarios: Usuario[] = fakeUsers;
 	console.log(usuarios);

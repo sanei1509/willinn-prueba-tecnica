@@ -1,9 +1,49 @@
-import Image from 'next/image'
+import WillinnLogo from './ui/willinnLogo';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import styles from '@/app/ui/inicio.module.css';
+import { inter } from '@/app/ui/fonts';
+import Image from 'next/image';
 
-export default function Home() {
+export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Prueba tecnica</h1>
+    <main className="flex min-h-screen flex-col p-6">
+      <div className="flex h-20 shrink-0 items-end rounded-lg bg-red-500 p-4 md:h-52">
+        <WillinnLogo size={50} />
+      </div>
+      <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
+        <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
+        <div className={styles.shape} />
+          <Link
+            href="/login"
+            className="flex items-center gap-5 self-start rounded-lg bg-red-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-400 md:text-base"
+          >
+            <span>Iniciar sesión</span> <ArrowRightIcon className="w-5 md:w-6" />
+          </Link>
+        </div>
+        <div className='flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12'>
+
+        <div className='flex items-center gap-5 self-start rounded-lg bg-red-500 px-6 py-3 text-sm font-medium text-white'>
+            <h1 className='font-bold'>Inicia sesión</h1><ArrowRightIcon className="w-5 md:w-6" />
+            <p>usuario: <strong>usuarioAdmin@gmail.com</strong>   </p>
+            <p>clave: <strong>123456</strong></p> 
+        </div>
+        
+          
+        </div>
+        <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
+
+          {/* Add Hero Images Here */}
+          <Image
+        src="/hero-desktop-2.jpg"
+        width={1200}
+        height={1000}
+        className="hidden md:block"
+        alt="Screenshots of the dashboard project showing desktop version"
+      />
+
+        </div>
+      </div>
     </main>
-  )
+  );
 }
