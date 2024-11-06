@@ -27,16 +27,16 @@ export default function LoginPage() {
       router.push('/dashboard/usuarios'); // Redirige al usuario a /usuarios en caso de éxito
     } else {
       // Manejar errores
-      setError('Error de credenciales intenta a modo prueba con : usuarioAdmin@gmail / 123456');
+      setError(`Error de credenciales intenta a modo prueba con : \n usuarioAdmin@gmail.com / 123456`);
     }
   }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <WillinnLogo size={200}/>
-      <form onSubmit={handleSubmit} className="w-full max-w-sm p-6 bg-white rounded-lg shadow-md">
+      <form onSubmit={handleSubmit} className="w-full  max-w-sm p-6 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-semibold text-center text-gray-800 mb-4">Inicio de sesión</h2>
         
-        {error && <p className="text-red-500 text-center mb-4">{error}</p>} {/* Mensaje de error */}
+        {error && <p className="text-red-500 text-center mb-4 bg-red-200 py-2 px-2">{error}</p>} {/* Mensaje de error */}
 
 
         <div className="mb-4">
