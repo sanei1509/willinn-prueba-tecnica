@@ -46,7 +46,7 @@
 
 				{isLoading ? (
         <div className="flex justify-center items-center h-64">
-				<ClipLoader color="#4A90E2" loading={isLoading} size={50} /> {/* Spinner */}
+				<ClipLoader color="#ff5387" loading={isLoading} size={50} /> {/* Spinner */}
 				</div>
       ) : (
         <div className="flex space-x-4 p-8">

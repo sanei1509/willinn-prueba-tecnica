@@ -16,15 +16,16 @@ export default function SideBar() {
       <div className={styles.navContent}>
         <NavLinks />
         <div className={styles.placeholder}></div>
-        <form>
-          <button 
-            className={styles.signOutButton}
-            onClick={() => signOut({ callbackUrl: '/login' })} 
-            >
-            <PowerIcon className={styles.powerIcon} />
-            <div className={styles.signOutText}>Sign Out</div>
-          </button>
-        </form>
+
+          <div>
+            <button 
+              className={styles.signOutButton}
+              onClick={() => signOut({ callbackUrl: '/login' })} 
+              >
+              <PowerIcon className={styles.powerIcon} />
+              <div className={styles.signOutText}>Salir de la cuenta</div>
+            </button>
+          </div>
       </div>
     </div>
   );
