@@ -19,7 +19,7 @@ export default function SideBar() {
         <form>
           <button 
             className={styles.signOutButton}
-            onClick={() => signOut()} 
+            onClick={() => signOut({ callbackUrl: '/login' })} 
             >
             <PowerIcon className={styles.powerIcon} />
             <div className={styles.signOutText}>Sign Out</div>

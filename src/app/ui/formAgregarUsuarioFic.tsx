@@ -1,22 +1,14 @@
 'use client';
 import React, { useState } from 'react';
-import {
-  FormControlLabel,
-  Switch
-} from '@mui/material';
+import { FormControlLabel, Switch } from '@mui/material';
 import { teal } from '@mui/material/colors';
+import { Usuario } from '../types';
 
 interface FormularioAgregarUsuarioProps {
-  onAddUser: (newUser: {
-    nombre: string;
-    apellido: string;
-    correo: string;
-    contraseña: string;
-    activo: boolean;
-  }) => void;
+  onAddUser: (newUser: Usuario) => void;
 }
 
-const FormularioAgregarUsuario: React.FC<FormularioAgregarUsuarioProps> = ({ onAddUser }) => {
+const FormularioAgregarUsuarioFic: React.FC<FormularioAgregarUsuarioProps> = ({ onAddUser }) => {
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
@@ -24,6 +16,8 @@ const FormularioAgregarUsuario: React.FC<FormularioAgregarUsuarioProps> = ({ onA
     contraseña: '',
     activo: true,
   });
+
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -35,13 +29,31 @@ const FormularioAgregarUsuario: React.FC<FormularioAgregarUsuarioProps> = ({ onA
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Formulario enviado:', formData);
-    onAddUser(formData); // Enviar los datos al componente padre
+    
+    // Validación de que todos los campos estén completos
+    if (!formData.nombre || !formData.apellido || !formData.correo || !formData.contraseña) {
+      setError('Por favor, completa todos los campos.');
+      return;
+    }
+
+    // Llama a la función de `onAddUser` del componente padre
+    onAddUser(formData);
+    setError(null); // Limpia el mensaje de error después de enviar
+
+    // Limpia el formulario después de agregar el usuario
+    setFormData({
+      nombre: '',
+      apellido: '',
+      correo: '',
+      contraseña: '',
+      activo: true,
+    });
   };
 
   return (
     <div className="bg-white rounded-lg shadow p-6">
-      <h2 className="text-lg font-semibold mb-4">Agregar usuario</h2>
+      <h2 className="text-lg font-semibold mb-4">Agregar usuario ficticio</h2>
+      {error && <p className="text-red-500 mb-4">{error}</p>} {/* Mensaje de error */}
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-gray-700">Nombre</label>
@@ -119,4 +131,4 @@ const FormularioAgregarUsuario: React.FC<FormularioAgregarUsuarioProps> = ({ onA
   );
 };
 
-export default FormularioAgregarUsuario;
+export default FormularioAgregarUsuarioFic;

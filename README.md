@@ -6,6 +6,17 @@ Mi elección es llevar a adelante el desafío frontend, dominando nextJS, aplica
 
 [Link directo a la app](https://willinn-prueba-tecnica.vercel.app/)
 
+
+## Comando para correr el Dockerfile
+la app esta dockerizada por lo que luego de clonarlo y pararte en la raiz, si ejecutas lo siguiente:
+
+````
+docker run....
+````
+
+Solo necesitas acceder a http://localhost:3000 para ver la app. 
+
+
 ## Desafío Frontend
 1. Frontend Basado en Figma
 Desarrollar el frontend de la aplicación siguiendo el diseño proporcionado en Figma.

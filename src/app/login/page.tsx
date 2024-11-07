@@ -27,7 +27,7 @@ export default function LoginPage() {
       router.push('/dashboard/usuarios'); // Redirige al usuario a /usuarios en caso de éxito
     } else {
       // Manejar errores
-      setError(`Error de credenciales intenta a modo prueba con : \n usuarioAdmin@gmail.com / 123456`);
+      setError(`Error intenta con : \n \n usuarioAdmin@gmail.com / \n \n 123456`);
     }
   }
   return (
@@ -36,8 +36,7 @@ export default function LoginPage() {
       <form onSubmit={handleSubmit} className="w-full  max-w-sm p-6 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-semibold text-center text-gray-800 mb-4">Inicio de sesión</h2>
         
-        {error && <p className="text-red-500 text-center mb-4 bg-red-200 py-2 px-2">{error}</p>} {/* Mensaje de error */}
-
+        {error && <p className="text-red-500 mb-4">{error}</p>} {/* Mensaje de error */}
 
         <div className="mb-4">
           <label className="block text-gray-700">Correo Electrónico</label>
