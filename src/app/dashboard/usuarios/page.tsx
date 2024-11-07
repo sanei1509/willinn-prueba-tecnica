@@ -58,7 +58,7 @@ export default function UsuariosPage() {
       ) : (
         <div className="flex space-x-4 p-8">
           <div className="w-2/3">
-            <TablaUsuarios usuarios={usuarios} />
+            <TablaUsuarios usuarios={usuarios} onDeleteUser={()=>{}}/>
           </div>
           <div className="w-1/3">
             <FormularioAgregarUsuario onAddUser={handleAddUser}/>

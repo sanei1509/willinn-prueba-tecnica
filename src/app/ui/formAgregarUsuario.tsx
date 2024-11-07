@@ -5,6 +5,7 @@ import {
   Switch
 } from '@mui/material';
 import { teal } from '@mui/material/colors';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 interface FormularioAgregarUsuarioProps {
   onAddUser: (newUser: {
@@ -14,9 +15,10 @@ interface FormularioAgregarUsuarioProps {
     contraseña: string;
     activo: boolean;
   }) => void;
+  isAdding: boolean;
 }
 
-const FormularioAgregarUsuario: React.FC<FormularioAgregarUsuarioProps> = ({ onAddUser }) => {
+const FormularioAgregarUsuario: React.FC<FormularioAgregarUsuarioProps> = ({ onAddUser, isAdding }) => {
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
@@ -111,8 +113,9 @@ const FormularioAgregarUsuario: React.FC<FormularioAgregarUsuarioProps> = ({ onA
         <button
           type="submit"
           className="w-full bg-purple-500 text-white py-2 rounded mt-4 hover:bg-purple-600"
+          disabled={isAdding}
         >
-          Guardar
+         {isAdding ? <ClipLoader color="#ffffff" size={20} /> : 'Guardar'}
         </button>
       </form>
     </div>

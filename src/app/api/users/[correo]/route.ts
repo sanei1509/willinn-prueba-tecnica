@@ -5,11 +5,12 @@ const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
 });
 
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
-  const { id } = params;
+export async function DELETE(req: Request, { params }: { params: { correo: string } }) {
+  console.log('Correo recibido:', params.correo); // Agrega este log
 
+  const { correo } = params;
   try {
-    const result = await pool.query('DELETE FROM usuarios WHERE id = $1 RETURNING *', [id]);
+    const result = await pool.query('DELETE FROM usuarios WHERE correo = $1 RETURNING *', [correo]);
 
     if (result.rowCount === 0) {
       return NextResponse.json({ message: 'Usuario no encontrado' }, { status: 404 });
