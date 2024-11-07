@@ -13,6 +13,7 @@ export default function LoginPage() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setError(null);
     setIsLoading(true);
 
     const formData = new FormData(event.currentTarget);
@@ -26,13 +27,15 @@ export default function LoginPage() {
       password,
     });
 
-    setIsLoading(false); 
+
 
     if (result?.ok) {
-      router.push('/dashboard/usuarios'); // Redirige al usuario a /usuarios en caso de éxito
+      router.push('/dashboard/usuarios');
+      // Redirige al usuario a /usuarios en caso de éxito
     } else {
       // Manejar errores
       setError(`Error intenta con : \n \n usuarioAdmin@gmail.com / \n \n 123456`);
+      setIsLoading(false);
     }
   }
   return (
