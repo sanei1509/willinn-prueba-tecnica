@@ -12,7 +12,6 @@ export default async function page() {
       <p className="text-gray-600 mt-4">Desafio realizado por Santiago Neira</p>
 
       <div className="flex space-x-4 mt-6">
-        {/* Enlace a LinkedIn */}
         <a
           href="https://www.linkedin.com/in/santiago-neira-4479501b7/"
           target="_blank"
@@ -21,7 +20,6 @@ export default async function page() {
         >
           <FaLinkedin />
         </a>
-        {/* Enlace a GitHub */}
         <a
           href="https://github.com/sanei1509"
           target="_blank"
