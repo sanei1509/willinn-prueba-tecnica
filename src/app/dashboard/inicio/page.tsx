@@ -9,7 +9,7 @@ export default async function page() {
 	return (
 		<div>
      <h1 className="text-4xl font-bold text-gray-800 mt-6">¡Bienvenido a la aplicación!</h1>
-      <p className="text-gray-600 mt-4">Desafio realizado por Santiago Neira.</p>
+      <p className="text-gray-600 mt-4">Desafio realizado por Santiago Neira</p>
 
       <div className="flex space-x-4 mt-6">
         {/* Enlace a LinkedIn */}
