@@ -17,9 +17,9 @@ Usa el siguiente comando en la raíz de tu proyecto
 docker build -t my-app .
 ````
 
-### Paso 2 - Ejecuta el contenedor con `docker-compose`
+### Paso 2 - Ejecuta el contenedor 
 ````
-docker-compose up --build
+docker run -p 3000:3000 my-app
 ````
 
 Ahora solo necesitas acceder a http://localhost:3000 para ver la app. 
