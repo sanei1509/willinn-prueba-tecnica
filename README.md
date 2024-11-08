@@ -10,11 +10,19 @@ Mi elección es llevar a adelante el desafío frontend, dominando nextJS, aplica
 ## Comando para correr el Dockerfile
 la app esta dockerizada por lo que luego de clonarlo y pararte en la raiz, si ejecutas lo siguiente:
 
+### Paso 1 - Construye la imagen de docker de tu app
+
+Usa el siguiente comando en la raíz de tu proyecto
 ````
-docker run....
+docker build -t my-app .
 ````
 
-Solo necesitas acceder a http://localhost:3000 para ver la app. 
+### Paso 2 - Ejecuta el contenedor con `docker-compose`
+````
+docker-compose up --build
+````
+
+Ahora solo necesitas acceder a http://localhost:3000 para ver la app. 
 
 
 ## Desafío Frontend

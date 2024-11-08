@@ -7,9 +7,12 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 interface TablaUsuariosProps {
   usuarios: Usuario[];
   onDeleteUser: (correo: string) => void;
+  onEditUser: (usuario: Usuario) => void;
 }
 
-const TablaUsuarios: React.FC<TablaUsuariosProps> = ({ usuarios, onDeleteUser }) => {
+
+
+const TablaUsuarios: React.FC<TablaUsuariosProps> = ({ usuarios, onDeleteUser, onEditUser }) => {
   return (
     <div className="bg-white rounded-lg shadow p-4">
       <h2 className="text-lg font-semibold mb-4">Usuarios</h2>
@@ -30,10 +33,10 @@ const TablaUsuarios: React.FC<TablaUsuariosProps> = ({ usuarios, onDeleteUser })
                 </td>
                 <td className="px-4 py-2 border-b text-gray-700">{usuario.correo}</td>
                 <td className="px-4 py-2 border-b text-gray-700">
-                    <button onClick={() => onDeleteUser(usuario.correo)} className="px-2 text-red-400 hover:text-red-700 hover bg-slate-50 mx">
+                    <button onClick={ () => onDeleteUser(usuario.correo) } className="px-2 text-red-400 hover:text-red-700 hover bg-slate-50 mx">
                       <DeleteOutlinedIcon fontSize="medium" />
                     </button>
-                    <button className="px-2 text-black hover:text-yellow-900 mx-2 bg-slate-50">
+                    <button onClick={ () => onEditUser(usuario) } className="px-2 text-black hover:text-yellow-900 mx-2 bg-slate-50">
                       <EditOutlinedIcon fontSize="medium" />
                     </button>
                 </td>

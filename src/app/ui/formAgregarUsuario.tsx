@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   FormControlLabel,
   Switch
@@ -16,9 +16,10 @@ interface FormularioAgregarUsuarioProps {
     activo: boolean;
   }) => void;
   isAdding: boolean;
+  resetFormTrigger: number;
 }
 
-const FormularioAgregarUsuario: React.FC<FormularioAgregarUsuarioProps> = ({ onAddUser, isAdding }) => {
+const FormularioAgregarUsuario: React.FC<FormularioAgregarUsuarioProps> = ({ onAddUser, isAdding, resetFormTrigger }) => {
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
@@ -40,6 +41,16 @@ const FormularioAgregarUsuario: React.FC<FormularioAgregarUsuarioProps> = ({ onA
     console.log('Formulario enviado:', formData);
     onAddUser(formData); // Enviar los datos al componente padre
   };
+
+  useEffect(() => {
+    setFormData({
+      nombre: '',
+      apellido: '',
+      correo: '',
+      contraseña: '',
+      activo: false,
+    });
+  }, [resetFormTrigger]);
 
   return (
     <div className="bg-white rounded-lg shadow p-6">

@@ -8,12 +8,12 @@ const pool = new Pool({
 export async function PATCH(req: Request, { params }: { params: { email: string } }) {
   const { email } = params;
   const body = await req.json();
-  const { nombre, apellido, correo, activo } = body;
+  const { nombre, apellido } = body;
 
   try {
     const result = await pool.query(
-      'UPDATE usuarios SET nombre = $1, apellido = $2, correo = $3, activo = $4 WHERE id = $5 RETURNING *',
-      [nombre, apellido, correo, activo]
+      'UPDATE usuarios SET nombre = $1, apellido = $2 WHERE correo = $3 RETURNING *',
+      [nombre, apellido, email]
     );
 
     if (result.rowCount === 0) {
